@@ -11,8 +11,8 @@ data "aws_iam_policy_document" "un_tagged_lambda_assume" {
 }
 
 resource "aws_iam_role" "un_tagged_lambda_role" {
-  name = "un-tagged-lambda"
-  tags = var.tags
+  name               = "un-tagged-lambda"
+  tags               = var.tags
   assume_role_policy = data.aws_iam_policy_document.un_tagged_lambda_assume.json
 }
 
@@ -46,8 +46,8 @@ data "aws_iam_policy_document" "un_tagged_lambda_perms" {
 }
 
 resource "aws_iam_policy" "un_tagged_lambda" {
-  name = "un-tagged-lambda"
-  tags = var.tags
+  name   = "un-tagged-lambda"
+  tags   = var.tags
   policy = data.aws_iam_policy_document.un_tagged_lambda_perms.json
 }
 
