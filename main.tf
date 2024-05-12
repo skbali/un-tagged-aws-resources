@@ -18,7 +18,7 @@ resource "aws_lambda_function" "un_tagged" {
   runtime          = "provided.al2"
   timeout          = 300
   memory_size      = 128
-  architectures   = ["arm64"]
+  architectures    = ["arm64"]
   filename         = data.archive_file.un_tagged_zip.output_path
   source_code_hash = data.archive_file.un_tagged_zip.output_base64sha256
 
