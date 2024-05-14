@@ -220,6 +220,10 @@ func HandleRequest() ([]string, error) {
 		}
 	}
 
+	if out.Len() == 0 {
+		return []string{okFunction}, nil
+	}
+
 	_, err := snsClient.Publish(context.TODO(), &sns.PublishInput{
 		Message:  aws.String(out.String()),
 		TopicArn: aws.String(topicArn),
